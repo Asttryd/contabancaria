@@ -18,16 +18,22 @@ public class ContaCorrente extends Conta {
 	}
 	
 	@Override
-	public boolean sacar(float value) {
+	public boolean sacar(float valor) {
 		float valorTotal = super.getSaldo() + limite;
 		
-		if (valorTotal < value) {
+		if (valorTotal < valor) {
 			return false;
 		}
 		
 		float saldo = super.getSaldo();
-		super.setSaldo(saldo - value);
+		super.setSaldo(saldo - valor);
 		return true;
+	}
+
+	@Override
+	public void depositar(float valor) {
+		float saldo = super.getSaldo();
+		super.setSaldo(saldo + valor);
 	}
 
 }

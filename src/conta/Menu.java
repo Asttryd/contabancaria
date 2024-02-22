@@ -13,6 +13,7 @@ public class Menu {
 		Scanner sc = new Scanner(System.in);
 		Conta c1 = new ContaCorrente(1, 123, "Sabrina", 250000.0f, 100);
 		
+		
 		boolean run = true;
 		
 		while (run) {
@@ -76,6 +77,7 @@ public class Menu {
 			
 			System.out.println();
 		}
+		
 		
 		System.out.println("Encerrando...");
 

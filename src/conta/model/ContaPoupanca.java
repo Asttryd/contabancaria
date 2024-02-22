@@ -11,8 +11,22 @@ public class ContaPoupanca extends Conta {
 	public int getRendimento() {
 		return rendimento;
 	}
-	public void setRendimento(int poupanca) {
-		this.rendimento = poupanca;
+	public void setRendimento(int rendimento) {
+		this.rendimento = rendimento;
+	}
+	@Override
+	public boolean sacar(float valor) {
+		if (saldo < valor) {
+			return false;
+		}
+		float saldo = super.getSaldo();
+		super.setSaldo(saldo - valor);
+		return true;
+	}
+	@Override
+	public void depositar(float valor) {
+		float saldo = super.getSaldo();
+		super.setSaldo(saldo + valor);
 	}
 
 }

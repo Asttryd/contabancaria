@@ -1,11 +1,11 @@
 package conta.model;
 
-public class Conta {
-	private int numero;
-	private int agencia;
-	private int tipo;
-	private String titular;
-	private float saldo;
+public abstract class Conta {
+	protected int numero;
+	protected int agencia;
+	protected int tipo;
+	protected String titular;
+	protected float saldo;
 	
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
@@ -55,19 +55,9 @@ public class Conta {
 		this.saldo = saldo;
 	}
 	
-	public boolean sacar(float valor) {
-		//Se saldo for menor, retornará falso
-		if(this.saldo < valor)
-			return false;
-		
-		//Se saldo for igual ou maior, retornará true
-		this.setSaldo(this.saldo - valor);
-		return true;
-	}
+	public abstract boolean sacar(float valor);
 	
-	public void depositar(float valor) {
-		this.setSaldo(this.saldo + valor);
-	}
+	public abstract void depositar(float valor);
 
 	public void visualizar() {
 		
