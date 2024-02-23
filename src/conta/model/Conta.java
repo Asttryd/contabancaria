@@ -1,11 +1,14 @@
 package conta.model;
 
-public abstract class Conta {
+import conta.repository.ContaRepository;
+
+public abstract class Conta implements ContaRepository {
+	
 	protected int numero;
-	protected int agencia;
-	protected int tipo;
-	protected String titular;
-	protected float saldo;
+	private int agencia;
+	private int tipo;
+	private String titular;
+	private float saldo;
 	
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
@@ -55,9 +58,22 @@ public abstract class Conta {
 		this.saldo = saldo;
 	}
 	
-	public abstract boolean sacar(float valor);
+	public boolean sacar(float valor) {
+		
+		if (this.getSaldo() < valor) {
+			System.out.println("\n Saldo Insuficiente!");
+			return false;
+		}
+		
+		this.setSaldo(this.getSaldo() - valor);
+		return true;
+	}
 	
-	public abstract void depositar(float valor);
+	
+	public void depositar(float valor) {
+		setSaldo(this.getSaldo() + valor);
+		
+	}
 
 	public void visualizar() {
 		
