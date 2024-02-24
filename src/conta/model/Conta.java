@@ -1,10 +1,8 @@
 package conta.model;
 
-import conta.repository.ContaRepository;
-
-public abstract class Conta implements ContaRepository {
+public abstract class Conta {
 	
-	protected int numero;
+	private int numero;
 	private int agencia;
 	private int tipo;
 	private String titular;
@@ -58,6 +56,7 @@ public abstract class Conta implements ContaRepository {
 		this.saldo = saldo;
 	}
 	
+	//Método SACAR DINHEIRO
 	public boolean sacar(float valor) {
 		
 		if (this.getSaldo() < valor) {
@@ -70,11 +69,13 @@ public abstract class Conta implements ContaRepository {
 	}
 	
 	
+	//Método DEPOSITAR DINHEIRO
 	public void depositar(float valor) {
 		setSaldo(this.getSaldo() + valor);
 		
 	}
 
+	//Método VISUALIZAR DADOS DA CONTA
 	public void visualizar() {
 		
 		String tipoConta = "";

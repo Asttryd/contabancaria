@@ -4,9 +4,9 @@ public class ContaCorrente extends Conta {
 
 	private float limite;
 	
-	public ContaCorrente(int numero, int agencia, String titular, float saldo, int limite) {
-		super(numero, agencia, 1, titular, saldo);
-		this.limite = limite;
+	public ContaCorrente(int gerarNumero, int agencia, int tipo, String titular, float saldo, float limite2) {
+		super(gerarNumero, agencia, tipo, titular, saldo);
+		this.limite = limite2;
 	}
 
 	public float getLimite() {
@@ -17,6 +17,8 @@ public class ContaCorrente extends Conta {
 		this.limite = limite;
 	}
 	
+	
+	//Método SACAR DINHEIRO
 	@Override
     public boolean sacar(float valor) {
     	
@@ -29,57 +31,11 @@ public class ContaCorrente extends Conta {
 		return true;
     }
 
+	//Método VISUALIZAR DADOS DA CONTA
     @Override
 	public void visualizar() {
 		super.visualizar();
 		System.out.println("Limite de Crédito: " + this.limite);
 	}
 
-	@Override
-	public void procurarPorNumero(int numero) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void listarTodas() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void cadastrar(Conta conta) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void atualizar(Conta conta) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deletar(int numero) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void transferir(int numroOrigem, int numeroDestino, float valor) {
-		// TODO Auto-generated method stub
-		
-	}
 }
